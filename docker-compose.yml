@@ -10,6 +10,10 @@ services:
       MYSQL_DATABASE: testdb
       MYSQL_USER: stevy
       MYSQL_PASSWORD: toor
+    volumes:
+      - database:/var/lib/mysql
+    networks:
+      - lamp-network
 
   phpmyadmin:
     image: phpmyadmin
@@ -20,6 +24,8 @@ services:
     environment:
       MYSQL_USER: stevy
       MYSQL_PASSWORD: toor
+    networks:
+      - lamp-network
 
   php:
     build: ./
@@ -29,3 +35,12 @@ services:
       - 80:80
     volumes:
       - ./src:/var/www/html
+    networks:
+      - lamp-network
+networks:
+  lamp-network:
+    name: lamp-network
+    driver: bridge
+
+volumes:
+  database:
