@@ -16,7 +16,7 @@ services:
     links:
       - db
     ports:
-      - 8080:80
+      - 8000:80
     environment:
       MYSQL_USER: stevy
       MYSQL_PASSWORD: toor
