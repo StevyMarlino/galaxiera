@@ -11,9 +11,11 @@ services:
       MYSQL_USER: stevy
       MYSQL_PASSWORD: toor
     volumes:
-      - database:/var/lib/mysql
+      - dbvolume:/var/lib/mysql
     networks:
       - lamp-network
+    ports:
+      - 5412-5999:3306
 
   phpmyadmin:
     image: phpmyadmin
@@ -37,10 +39,11 @@ services:
       - ./src:/var/www/html
     networks:
       - lamp-network
+
 networks:
   lamp-network:
     name: lamp-network
     driver: bridge
 
 volumes:
-  database:
+  dbvolume:
