@@ -39,7 +39,7 @@ services:
       - ./src:/var/www/html
     networks:
       - lamp-network
-
+      
 networks:
   lamp-network:
     name: lamp-network
