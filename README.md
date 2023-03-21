@@ -3,6 +3,6 @@
 ## Lauch Service
 
 
-'''bash
-   docker-compose up -d --Build
-'''
+`ˋ`bash
+   docker-compose up -d --build
+ˋ`ˋ
