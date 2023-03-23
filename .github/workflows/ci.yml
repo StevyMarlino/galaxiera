@@ -1,0 +1,26 @@
+name: CI/CD 
+
+on:
+  push:
+    branches: [ $default-branch ]
+
+jobs:
+  build:
+
+    runs-on : ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        php-version : [7.x, 8.x]
+        os:
+          - ubuntu-latest
+          - windows-latest
+
+    steps:
+      - uses: actions/checkout@v2
+        with: ${{ matrix.php-version}}
+      - name: Test php 
+        run: php --version
+
+
+    
