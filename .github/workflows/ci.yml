@@ -19,8 +19,9 @@ jobs:
           - windows-latest
 
     steps:
-      - uses: actions/checkout@v2
-        with: ${{ matrix.php-version}}
+      - uses: shivammathur/setup-php@15c43e89cdef867065b0213be354c2841860869e
+        with: 
+         php-version : ${{ matrix.php-version}}
       - name: Test php 
         run: php --version
     
