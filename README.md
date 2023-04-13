@@ -22,5 +22,5 @@
 ```bash
    docker network ls
 ```
-qdjfqlskdf qsdf /
->> lqsdjfqsjd f
+qdjfqlskdf qsdf \
+lqsdjfqsjd f
