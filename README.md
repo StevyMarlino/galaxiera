@@ -18,3 +18,9 @@
 ```bash
    docker-compose down
 ```
+
+```bash
+   docker network ls
+```
+qdjfqlskdf qsdf
+lqsdjfqsjd f

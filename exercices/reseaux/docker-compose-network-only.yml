@@ -6,8 +6,6 @@ services:
       image: httpd:2.4
       networks:
         - reseaux_1
-      ports:
-        - 8081:80
 
 
     container_1_2: 
