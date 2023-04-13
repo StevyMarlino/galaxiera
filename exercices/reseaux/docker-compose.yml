@@ -7,7 +7,7 @@ services:
       networks:
         - reseaux_1
       ports:
-        - 8081:80
+        - 0.0.0.0:8081:80
 
 
     container_1_2: 
