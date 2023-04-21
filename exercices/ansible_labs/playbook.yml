@@ -1,0 +1,10 @@
+---
+  - name: my-play
+    hosts: all
+    become: true
+    tasks:
+       - name: tache-aUnable to parse /home/stevy/Github/galaxiera/exercices/ansible_labs/localhost as an inventory source
+         ansible.builtin.file:
+            path: /testdir
+            state: directory
+            mode: '0777'

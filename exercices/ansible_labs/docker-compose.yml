@@ -1,0 +1,19 @@
+version: '3.1'
+
+services:
+
+  server_web_1:
+     build: .
+     container_name: server_web_1
+     networks:
+       - reseau_1
+ 
+  server_web_2:
+     build: .
+     container_name: server_web_2
+     networks:
+       - reseau_2
+
+networks:
+  reseau_1:
+  reseau_2:
