@@ -1,8 +1,6 @@
 Un module c'est une dependance permettan de realiser des taches
 chaque module permet de realiser des fonctions bien precises
 
-Nguidjol Martin17:56
-
 ansible -i inventory-name -m module-name -a "[command"]
 
 les plays realisent des taches et les taches utilisent les modules
@@ -16,8 +14,8 @@ exemple de playbook
     hosts: all
     become:  yes
     tasks:
-       - name: tache-a
-	 ansible.builtin.file:
-	    path: /testdir
-	    state: directory
-	    mode: '0777'
+      - name: tache-a
+        ansible.builtin.file:
+          path: /testdir
+          state: directory
+          mode: '0777'
