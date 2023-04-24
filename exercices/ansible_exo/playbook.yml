@@ -1,0 +1,7 @@
+---
+  - name: my-play
+    hosts: all
+    tasks:
+      - name: print all facts 
+        ansible.builtin.debug:
+          var: ansible_facts

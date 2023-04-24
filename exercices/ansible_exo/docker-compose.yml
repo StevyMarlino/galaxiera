@@ -1,0 +1,53 @@
+version: '3.1'
+
+services:
+
+# web server 1 
+  web_1:
+    build: .
+    container_name: web_1
+    volumes:
+      - ./ansible_ssh_connexion.pub:/home/stevy/.ssh/authorized_keys:ro
+    expose:
+      - 22
+    networks:
+      - web_network_1
+  
+# web server 2  
+  web_2:
+    build: .
+    container_name: web_2
+    volumes:
+      - ./ansible_ssh_connexion.pub:/home/stevy/.ssh/authorized_keys:ro
+    expose:
+      - 22
+    networks:
+      - web_network_1
+
+# web server 3
+  web_3:
+      build: .
+      container_name: web_3
+      volumes:
+        - ./ansible_ssh_connexion.pub:/home/stevy/.ssh/authorized_keys:ro
+      expose:
+        - 22
+      networks:
+        - web_network_2
+
+# web server 4
+  web_4:
+    build: .
+    container_name: web_4
+    volumes:
+      - ./ansible_ssh_connexion.pub:/home/stevy/.ssh/authorized_keys:ro
+    expose:
+      - 22
+    networks:
+      - web_network_2
+
+networks:
+  web_network_1:
+    name: web_network_1
+  web_network_2:
+    name: web_network_2
