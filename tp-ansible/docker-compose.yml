@@ -1,0 +1,19 @@
+version: '3.1'
+
+services:
+
+  containera:
+       image: ssh-con:v1
+       networks:
+         - networka
+  
+  containerb:
+       image: ssh-con:v1
+       networks:
+         - networkb
+
+networks:
+  networka:
+    name: networka
+  networkb:
+    name: networkb

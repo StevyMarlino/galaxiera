@@ -1,0 +1,55 @@
+# Demo 1: Launch a Website on Amazon EC2
+
+1. Launch an EC2 instance
+2. Enable inbound access for SSH and HTTP from 0.0.0.0/0
+3. Add the user data below:
+
+#!/bin/bash
+yum update -y
+yum install -y httpd
+systemctl start httpd
+systemctl enable httpd
+cd /var/www/html
+wget https://temp-bucket-aws-live-session.s3.amazonaws.com/index.html
+wget https://temp-bucket-aws-live-session.s3.amazonaws.com/hw.jpeg
+wget https://temp-bucket-aws-live-session.s3.amazonaws.com/hw.css
+
+4. Test the website by connecting to the public IP over HTTP (in your browser)
+
+# Demo 2: Create an Amazon Machine Image
+
+1. Create an image (AMI) of the running web server
+2. Note the snapshot and AMI that have been created
+3. Launch an instance from the AMI using the AWS CLI command below in AWS CloudShell (update security group ID and AMI ID):
+
+aws ec2 run-instances --image-id ami-xxxxxxxxxxxx --count 1 --instance-type t2.micro --security-group-ids sg-xxxxxxxxxxxx
+
+# Demo 3: Create an Auto Scaling Group
+
+## Create a Launch Template
+
+1. Create a launch template that uses the AMI and security group previously created
+2. Create an Auto Scaling Group that uses the launch template
+3. Set the minimum, maximum and desired values to at least 2
+4. Add the following user data:
+
+#!/bin/bash
+cd /var/www/html
+cp index.html index.txt
+EC2AZ=$(TOKEN=`curl -X PUT "http://169.254.169.254/latest/api/token" -H "X-aws-ec2-metadata-token-ttl-seconds: 21600"` && curl -H "X-aws-ec2-metadata-token: $TOKEN" -v http://169.254.169.254/latest/meta-data/placement/availability-zone)
+sed "s/AZID/$EC2AZ/" /var/www/html/index.txt > /var/www/html/index.html
+
+5. Watch the instances launch across multiple availability zones and test connectivity to the public IPs over HTTP
+
+# Demo 4: Attach an Elastic Load Balancer
+
+1. Create a target group
+2. Attach the target group to the Auto Scaling Group
+3. Create an Application Load Balancer (ALB) with an HTTP listener that uses the target group
+4. Once initialized, check connectivity via the ALB DNS name
+
+# Demo 5: Deploy a Load Balanced App with AWS CloudFormation
+
+1. Create an AWS CloudFormation stack and use the following S3 URL:
+
+https://temp-bucket-cloudformation-demo.s3.amazonaws.com/cloudformation-demo-webapp.json
