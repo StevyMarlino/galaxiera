@@ -2,7 +2,7 @@
   - name: Get Details Information 
     hosts: all
     tasks:
-      - include_tasks: /home/stevy/Github/exo/get/name_host.yml
-      - include_tasks: /home/stevy/Github/exo/get/create_file.yml
-      - include_tasks: /home/stevy/Github/exo/get/host_information.yml
-      - include_tasks: /home/stevy/Github/exo/get/fetch_file.yml
+      - include_tasks: YOUR_OWN_PATH/get/name_host.yml
+      - include_tasks: YOUR_OWN_PATH/get/create_file.yml
+      - include_tasks: YOUR_OWN_PATH/get/host_information.yml
+      - include_tasks: YOUR_OWN_PATH/get/fetch_file.yml
