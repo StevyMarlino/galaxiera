@@ -1,4 +1,4 @@
 ---
-  - name : Get Host Information
+  - name : Get my host name
     debug:
       msg: "My host name is : {{ ansible_hostname }}"
