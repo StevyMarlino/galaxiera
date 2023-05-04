@@ -9,7 +9,7 @@ RUN groupadd galaxiera && useradd -ms /bin/bash -G galaxiera stevy
 COPY container_shared.pub  /home/stevy/.ssh/authorized_keys 
 
 # creation du directorie de l'utilasteur stevy
-RUN mkdir -p /home/stevy/.ssh && chown -R stevy:galaxiera /home/stevy/.ssh/
+RUN mkdir -p /home/stevy/.ssh && chown -R stevy:galaxiera /home/stevy/.ssh/*
 
 RUN chmod 600 /home/stevy/.ssh/authorized_keys
 

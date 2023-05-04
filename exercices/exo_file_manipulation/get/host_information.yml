@@ -1,0 +1,9 @@
+---
+  - name : Copy Host information
+    copy:
+      content: | 
+                 Hostname : {{ ansible_hostname }} 
+                 SE: {{ ansible_distribution }} 
+                 KERNEL : {{ ansible_kernel }}
+                 Free Space: {{ ansible_memory_mb.real.free }}
+      dest: /home/stevy/{{ ansible_hostname }}.txt
