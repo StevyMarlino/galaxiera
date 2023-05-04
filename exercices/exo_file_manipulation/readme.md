@@ -11,7 +11,10 @@
 ## How to launch the projet
 
 1. Into the file 00_inventory.ini replace the current host machine with your own host machine
-2. Into the playbook.yml you need to precise you own directory (the basename you have deploy the projet)
+2. You must do this command to create your own .env file and past your own dirname to the variable PATCH_DIR
+```
+cp .env.example .env 
+```
 3. Into the diretory group_vars/custom.yml you must precise you own ssh user and the path to your own ssh private file
 
 

@@ -1,3 +1,2 @@
 ansible_user: stevy
-ansible_ssh_private_key_file: /home/stevy/Github/exo/conconnec
-patch : /home/stevy/Github/exo/get
+ansible_ssh_private_key_file: /home/stevy/Github/galaxiera/exercices/exo_file_manipulation/conconnec

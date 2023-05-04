@@ -6,4 +6,4 @@
                  SE: {{ ansible_distribution }} 
                  KERNEL : {{ ansible_kernel }}
                  Free Space: {{ ansible_memory_mb.real.free }}
-      dest: /home/stevy/{{ ansible_hostname }}.txt
+      dest: "{{ ansible_user_dir }}/{{ ansible_hostname }}.txt"

@@ -1,7 +1,7 @@
 ---
   - name: Create file wiht the host name
     file:
-      path: /home/stevy/{{ ansible_hostname }}.txt
+      path: "{{ ansible_user_dir }}/{{ ansible_hostname }}.txt"
       state: touch
       mode: '644'
   

@@ -1,6 +1,6 @@
 ---
   - name: Fetch host file information in my local machine
     fetch:
-      src: /home/stevy/{{ ansible_hostname }}.txt
+      src: "{{ ansible_user_dir }}/{{ ansible_hostname }}.txt"
       dest: ./out_data/{{ ansible_hostname }}.txt
       flat: true
