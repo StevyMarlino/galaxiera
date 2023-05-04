@@ -1,4 +1,0 @@
-Hostname : 94e853dd48dd 
-SE: Ubuntu 
-KERNEL : 5.19.0-41-generic
-Free Space: 222
