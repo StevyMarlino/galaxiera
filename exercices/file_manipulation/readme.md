@@ -1,8 +1,8 @@
 ## To Do
 
 - Get the hostname with the playbook
-- Create a file in the distant host equal to the hostname we just get with the playbook
-- Insert into that file different host information like 
+- Create a file in the remote host equal to the hostname we just get with the playbook
+- Insert into that file different host informations like 
     - free space
     - operating system
     - kernel version
@@ -29,7 +29,7 @@ or
 ansible-inventory -i 00_inventory.ini --graph
 ```
 
-#### Test you inventory with a ping - pong
+#### Test your inventory with a ping - pong
 ```
 ansible -i 00_inventory.ini all -m ping
 ```
