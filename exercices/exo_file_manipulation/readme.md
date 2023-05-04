@@ -42,3 +42,7 @@ ansible -i 00_inventory.ini 192.168.96.3 -m ping
 ### Test with a playbook file
 ```
 ansible-playbook -i 00_inventory.ini playbook.yml
+```
+
+### note : You can use your own inventory file 
+### note : You can use your own group name
