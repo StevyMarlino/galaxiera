@@ -2,3 +2,4 @@
 .env
 conconnec.*
 conconnec
+out_data/*
