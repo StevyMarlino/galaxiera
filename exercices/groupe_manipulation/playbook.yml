@@ -1,0 +1,6 @@
+---
+  - name: Create unique file
+    hosts: all
+    tasks:
+      - include_tasks: "{{ playbook_dir }}/create/directory.yml"
+      - include_tasks: "{{ playbook_dir }}/create/file.yml"

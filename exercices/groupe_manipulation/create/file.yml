@@ -1,0 +1,6 @@
+---
+  - name: Create a file in the group name directory
+    file:
+      path: "{{ ansible_user_dir }}/{{ group_name }}/{{ docker_host }}.txt"
+      state: touch
+      mode: '644'

@@ -1,0 +1,5 @@
+---
+  - name: Create a Directory
+    file:
+      path: "{{ ansible_user_dir }}/{{ group_name }}"
+      state: directory
