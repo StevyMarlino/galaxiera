@@ -2,7 +2,7 @@
   - name: Get Details Information 
     hosts: all
     tasks:
-      - include_tasks: "{{ lookup('env','PATCH_DIR') }}get/name_host.yml"
-      - include_tasks: "{{ lookup('env','PATCH_DIR') }}get/create_file.yml"
-      - include_tasks: "{{ lookup('env','PATCH_DIR') }}get/host_information.yml"
-      - include_tasks: "{{ lookup('env','PATCH_DIR') }}get/fetch_file.yml"
+      - include_tasks: "{{ playbook_dir }}/get/name_host.yml"
+      - include_tasks: "{{ playbook_dir }}/get/create_file.yml"
+      - include_tasks: "{{ playbook_dir}}/get/host_information.yml"
+      - include_tasks: "{{ playbook_dir }}/get/fetch_file.yml"
