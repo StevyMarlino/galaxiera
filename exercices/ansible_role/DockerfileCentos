@@ -1,0 +1,21 @@
+FROM marwaney/ssh-server:centos7
+
+RUN yum install sudo
+
+RUN groupadd galaxiera && adduser -ms /bin/bash -G galaxiera stevy
+RUN usermod -aG wheel stevy
+
+RUN mkdir /home/stevy/.ssh/ && \
+    touch /home/stevy/.ssh/authorized_keys && \
+	chmod 700 /home/stevy/.ssh && \
+	chmod 600 /home/stevy/.ssh/authorized_keys && \
+	chown -R stevy:galaxiera /home/stevy/.ssh/
+
+COPY stevy.pub /home/stevy/.ssh/authorized_keys
+
+COPY stevy.pub /root/.ssh/authorized_keys
+# Configure stevy
+RUN passwd -d stevy
+
+EXPOSE 22
+CMD ["/usr/sbin/init"]

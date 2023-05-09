@@ -1,0 +1,12 @@
+---
+
+- name: Install Local ssh 
+  hosts: localhost
+  roles:
+    - ssh_keygen
+
+- name: Install User and group
+  become: true
+  hosts: all
+  roles: 
+    - apache2

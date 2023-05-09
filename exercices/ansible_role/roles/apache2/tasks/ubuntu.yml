@@ -1,0 +1,12 @@
+---
+# Install apache for ubuntu
+
+- name: Apache2 installation in Ubuntu
+  yum:
+    name: Apache2
+    state: present
+
+- name: Start apache2 
+  service:
+    name: apache2
+    state: started

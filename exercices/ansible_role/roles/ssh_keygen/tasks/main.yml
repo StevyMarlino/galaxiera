@@ -1,0 +1,6 @@
+---
+# tasks file for roles/ssh_keygen
+
+- name: Create SSH KEY 
+  community.crypto.openssh_keypair:
+    path: '/tmp/stevy'

@@ -1,0 +1,23 @@
+version: '3.1'
+
+services:
+    
+    machine1:
+      build:
+        context: .
+        dockerfile: ./DockerfileUbuntu
+      container_name: ubuntu
+
+    machine2:
+      build:
+        context: .
+        dockerfile: ./DockerfileDebian
+      container_name: debian
+
+    machine3:
+      build:
+        context: .
+        dockerfile: ./DockerfileCentos
+      volumes:
+        - /sys/fs/cgroup:/sys/fs/cgroup:ro
+      container_name: centos

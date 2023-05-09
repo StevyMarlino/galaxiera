@@ -1,0 +1,21 @@
+---
+# tasks file for roles/users
+
+- name: Create a user
+  user:
+    name: stevy
+    group: sudo
+    password: "{{ password | password_hash('sha512') }}"
+    append: true
+    shell: /bin/bash
+
+- name: Add user to sudoers 
+  copy:
+    content: "stevy ALL=(ALL) NOPASSWD: ALL"
+    dest: /etc/sudoers/stevy
+
+- name: Deploy SSH KEY
+  authorized_key:
+    user: stevy
+    key: "{{ lookup('file','/tmp/stevy.pub') }}"
+    state: present

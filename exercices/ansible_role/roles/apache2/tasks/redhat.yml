@@ -1,0 +1,7 @@
+---
+# Install apache for cent os
+
+- name: Apache2 installation in Centos
+  dnf:
+    name: httpd
+    state: latest

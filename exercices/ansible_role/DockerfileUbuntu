@@ -1,0 +1,16 @@
+FROM ubuntu:20.04
+
+RUN apt-get update && apt-get install -y openssh-server sudo
+
+RUN groupadd galaxiera && useradd -ms /bin/bash -G galaxiera stevy
+
+RUN sudo passwd -d stevy && usermod -aG sudo stevy
+
+COPY stevy.pub /home/stevy/.ssh/authorized_keys
+
+RUN chown stevy:galaxiera /home/stevy/.ssh/authorized_keys
+
+RUN service ssh start
+
+EXPOSE 22
+CMD ["/usr/sbin/sshd","-D"]
