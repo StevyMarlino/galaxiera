@@ -1,2 +1,2 @@
 ansible_user: stevy
-ansible_ssh_private_key_file: /home/stevy/pratique-2/stevy
+ansible_ssh_private_key_file: /home/stevy/Github/galaxiera/exercices/ansible_role/stevy
