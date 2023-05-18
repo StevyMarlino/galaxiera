@@ -1,0 +1,15 @@
+---
+- name: Create server host file
+  file:
+    path: "{{ ansible_user_dir }}/server_host"
+    state: touch
+  when: inventory_hostname != last_item
+
+
+- name: Get server host without mine
+  copy:
+    content: | 
+        Server IP
+        {{ hostvars[last_item].ansible_host }}
+    dest: "{{ ansible_user_dir }}/server_host"
+  when: inventory_hostname != last_item

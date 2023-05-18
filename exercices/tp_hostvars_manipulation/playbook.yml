@@ -1,0 +1,9 @@
+---
+- name: Task File Manipulation
+  hosts: all
+  vars:
+    last_item: "{{ groups.all | last }}"
+  tasks:
+    - include_tasks: "{{ playbook_dir }}/tasks/create-host-file.yml"
+    - include_tasks: "{{ playbook_dir }}/tasks/create-others-host-file.yml"
+    - include_tasks: "{{ playbook_dir }}/tasks/create-server-file.yml"

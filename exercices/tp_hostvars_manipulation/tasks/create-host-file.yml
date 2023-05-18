@@ -1,0 +1,16 @@
+---
+- name: Create host list file in home user
+  file:
+    path: "{{ ansible_user_dir }}/host_list"
+    state: touch
+
+- name: Copy information about host in my file 
+  copy:
+    content: |
+            {% for host in groups.all %}   
+              {% if network != hostvars[host].network %}
+                  Group name : {{ hostvars[host].group_names }}  
+                  Ip machine : {{ hostvars[host].ansible_host }}             
+              {% endif %}
+            {% endfor %}
+    dest: "{{ ansible_user_dir}}/host_list"

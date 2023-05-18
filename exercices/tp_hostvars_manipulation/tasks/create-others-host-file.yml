@@ -1,0 +1,19 @@
+---
+- name: Create others host file
+  file:
+    path: "{{ ansible_user_dir }}/others_hosts"
+    state: touch
+  when: inventory_hostname == last_item
+
+
+- name: Get others host without mine
+  copy:
+    content: | 
+        Ip List 
+        {% for host in groups.all %}
+          {% if ansible_host != hostvars[host].ansible_host %}
+            {{ hostvars[host].ansible_host }}
+          {% endif %}
+        {% endfor %}
+    dest: "{{ ansible_user_dir }}/others_hosts"
+  when: inventory_hostname == last_item
