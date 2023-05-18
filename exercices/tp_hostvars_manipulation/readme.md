@@ -6,7 +6,7 @@
   - create files in host_vars by hosts
 
 2. Write a playbook which in each container will create a file (hosts_list) in the user's home
-  - the curler must contaminate the list of containers which are not in the same network as him, and therefore which are not in the same group as him (4 hosts therefore)
+  - the file  must have the list of containers which are not in the same network as him, and therefore which are not in the same group as him (4 hosts therefore)
   - the file must be created from a template:
        [Name of the group]
        - ip machine 1
