@@ -85,7 +85,7 @@ ansible() {
         content=`docker network inspect -f '{{json .Containers}}' ${NETWORK_NAME}-$c | jq '.[] | .Name '`
 
         touch group_vars/groupe$c.yml
-        echo -e "network: ${NETWORK_NAME}-$c" >> group_vars/groupe$c.yml
+        echo -e "network: ${NETWORK_NAME}-$c" >> group_vars/groupe$c.yml 
 
         ### Format group_vars file
         echo -e "[groupe$c]\n$content\n" >> 00_inventory.ini

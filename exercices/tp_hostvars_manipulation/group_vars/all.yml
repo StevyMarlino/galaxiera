@@ -1,2 +1,2 @@
 ansible_user: marlino 
-ansible_ssh_private_key_file: /home/stevy/networkTaff/marlino
+ansible_ssh_private_key_file: /home/stevy/Github/galaxiera/exercices/tp_hostvars_manipulation/marlino

@@ -10,10 +10,7 @@
   copy:
     content: | 
         Ip List 
-        {% for host in groups.all %}
-          {% if ansible_host != hostvars[host].ansible_host %}
-            {{ hostvars[host].ansible_host }}
-          {% endif %}
-        {% endfor %}
+        {{ hostvars[item].ansible_host }}
     dest: "{{ ansible_user_dir }}/others_hosts"
-  when: inventory_hostname == last_item
+  loop: "{{ groups.all }}"
+  when: "inventory_hostname == last_item and ansible_host != hostvars[item].ansible_host"
